@@ -10,7 +10,7 @@ app = Flask(
     template_folder=Path.cwd() / "app" / "templates",
 )
 app.secret_key = os.urandom(24)
-app.config["STATIC"] = "https://cdn.jsdelivr.net/gh/Ridge-Computing/static/"
+app.config["STATIC"] = "https://cdn.jsdelivr.net/gh/Ridge-Computing/site/res"
 app.config["COLOR"] = "#009e54"
 
 
