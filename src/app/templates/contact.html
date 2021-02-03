@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h1 class="title is-1" style="padding-top: 3em;">Contact</h1>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Branches</h2>
+                <ul>
+                    {% for branch in branches.listall() %}
+                    <li>
+                        <div class="tile notification is-round is-parent">
+                            <div class="tile is-child">
+                                <p class="title is-5"><a href="/chapter/{{ branch.name }}">{{ branch.name }}</a></p>
+                            </div>
+                            <div class="tile is-child">
+                                <a href="mailto:{{ branch.email }}"><p class="subtitle">{{ branch.email }}</p></a>
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

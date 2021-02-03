@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}{{ chapter.name }}{% endblock %}
+
+{% block content %}
+
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h1 class="title is-1" style="padding-top: 3em;">{{ chapter.name }}</h1>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <figure style="padding-bottom: 1em;">
+                    <em>
+                    <pre id="hello"
+                         style="overflow: automatic; border-radius: 4px; font-size: xx-large; background-image: linear-gradient(141deg, #1f191a 0, #363636 71%, #46403f 100%); color: white;">$ </pre>
+                    </em>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Courses</h2>
+                <em>Click/tap to expand</em>
+                <ul style="padding-top: 0.5em;">
+                    {% for course in chapter.courses %}
+                    <li>
+                        <div class="tile notification is-parent is-vertical" onclick="toggle('{{ course.uuid }}')" style="cursor: pointer;">
+                            <div class="tile is-child" style="margin-bottom: 0 !important;">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <p class="title is-5">{{ course.name }}</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="subtitle">{{ chapter.time(course) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile notification is-white" id="{{ course.uuid }}"
+                                 style="display: none; margin-top: 1.5rem;">
+                                <div class="columns">
+                                    <div class="column is-3">
+                                        <p>Taught by:</p>
+                                        <ul style="list-style-type: disc;">
+                                            {% for dude in chapter.taught_by(course) %}
+                                            <li style="transform: translatex(2em)">{{ dude.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        <div class="tile is-child">
+                                            <img src="{{ course.icon }}" style="margin-top: 1em;">
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        {% include desc_for(course) %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    {% endfor %}
+                </ul>
+                <a href="{{ chapter.register }}" class="button is-rounded is-ridge is-large is-family-sans-serif">Register</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Members</h2>
+                <em>Click/tap to expand</em>
+                <ul style="padding-top: 0.5em;">
+                    {% for member in chapter.members %}
+                    <li>
+                        <div class="tile notification is-parent is-vertical" onclick="toggle('{{ member.uuid }}')" style="cursor: pointer;">
+                            <div class="tile is-child" style="margin-bottom: 0 !important;">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <p class="title is-5">{{ member.name }}</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="subtitle">{{ member.froles() }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tile notification is-white" id="{{ member.uuid }}"
+                                 style="display: none; margin-top: 1.5rem;">
+                                <div class="columns">
+                                    <div class="column is-3">
+                                        <img style="border-radius: 4px;" src="{{ member.pfp }}" alt="{{ member.name }}">
+                                    </div>
+                                    <div class="column">
+                                        {% include desc_for(member) %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    {% endfor %}
+                </ul>
+                <a href="mailto:{{ chapter.email }}" class="button is-rounded is-ridge is-large is-family-sans-serif">Contact
+                    us!</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Donations</h2>
+                {% for org in chapter.orgs %}
+                <a href="{{ org.url }}"><img src="{{ org.logo }}" alt="{{ org.name }} logo"
+                                             style="width: 5em; height: 5em; border-radius: 4px; margin-right: 1em;"></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+twemoji.parse(document.body, {
+    folder: 'svg',
+    ext: '.svg'
+});
+MathJax = {
+    options: {
+        enableMenu: false
+    }
+};
+consoleText(['> {{ chapter.taught }} students taught.', '> {{ chapter.raised }} USD raised.'], 'hello');
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endblock %}

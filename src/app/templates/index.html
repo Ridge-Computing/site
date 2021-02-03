@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero is-dark is-bold" style="height: 100vh;">
+    <div class="hero-body">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="columns is-vcentered" style="height: 64vh;">
+                <div class="column is-5 is-offset-1">
+                    <h1 class="title is-1 has-text-centered-mobile" style="padding-top: 8vh;">Ridge Computing</h1>
+
+                    <h2 class="has-text-centered-mobile" style="font-size: 20px; padding-bottom: 8vh;">Coding taught
+                        pragmatically.</h2>
+                    <a href="courses"
+                       class="button is-rounded is-ridge is-large is-family-sans-serif is-hidden-mobile">
+                        Register now!
+                    </a>
+                    <a href="courses"
+                       class="button is-rounded is-ridge is-large is-family-sans-serif is-hidden-tablet"
+                       style="display: block; margin-left: auto; margin-right: auto;">Register now!
+                    </a>
+                </div>
+                <div class="column is-5">
+                    <div class="is-hidden-mobile"><img src="{{ cdn_for(filename='logo.svg') }}" height="256vh"
+                                                                width="256vh" alt="logo" style="float: right; padding-top: 8vh;">
+                    </div>
+                    <div class="is-hidden-tablet"><img src="{{ cdn_for(filename='logo.svg') }}" height="256vh"
+                                                       width="256vh" alt="logo"
+                                                       style="display: block; margin-left: auto; margin-right: auto;">
+                    </div>
+                </div>
+                <div class="column is-1"></div>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <header class="column is-5 is-offset-1 has-text-centered-mobile">
+                    <h2 class="title is-1">Who
+                        are we?</h2>
+                    <a href="about" class="button is-rounded is-ridge is-large is-family-sans-serif">About us</a>
+                </header>
+                <div class="column is-5">
+                    <h3 class="subtitle is-5 has-text-centered-mobile">We're Ridge Computing, a nonprofit organization
+                        created by a group of high schoolers dedicated to inspire the next generation of coders.
+                        <br><br>
+                        We firmly believe that coding is a valuable skill that anyone should be allowed to learn. Thus,
+                        we hope to make computer science more accessible to everyone.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <h2 class="title is-1 is-hidden-tablet" style="text-align: center">Why us?</h2>
+                <div class="column is-5 is-offset-1">
+                    <div class="tile">
+                        <h3 class="subtitle is-5">
+                            <div class="columns is-vcentered">
+                                <div class="column is-2 is-hidden-mobile">
+                                    <i class="fas fa-globe-americas" style="width: 3em; height: 3em;"></i>
+                                </div>
+                                <div class="column">
+                                    <p>All of our proceeds are used in order to help the community!</p>
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <br>
+                    <div class="tile">
+                        <h3 class="subtitle is-5">
+                            <div class="columns is-vcentered">
+                                <div class="column is-2 is-hidden-mobile">
+                                    <i class="fas fa-child" style="width: 3em; height: 3em;"></i>
+                                </div>
+                                <div class="column">
+                                    <p>Our diverse courses are tailored to make learning easy for students of all
+                                        levels!</p>
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <br>
+                    <div class="tile">
+                        <h3 class="subtitle is-5">
+                            <div class="columns is-vcentered">
+                                <div class="column is-2 is-hidden-mobile">
+                                    <i class="fas fa-code" style="width: 3em; height: 3em;"></i>
+                                </div>
+                                <div class="column">
+                                    <p>Our instructors have a variety of qualifications, from high rankings in USACO and
+                                        HackerRank to extensive portfolios on GitHub!</p>
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+                <header class="column is-4 is-offset-1 is-hidden-mobile" style="text-align: right;">
+                    <h2 class="title is-1">Why us?</h2>
+                </header>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <header class="column is-5 is-offset-1 has-text-centered-mobile">
+                    <h2 class="title is-1">What courses do we offer?</h2>
+                    <a href="courses" class="button is-rounded is-ridge is-large is-family-sans-serif">Courses</a>
+                </header>
+                <div class="column is-5 has-text-centered-mobile">
+                    <h3 class="subtitle is-5">Our online courses teach a variety of programming
+                        skills. You can learn anything from fundamental concepts in Java to creating a model
+                        with Keras.
+                    </h3>
+                    <h3 class="subtitle is-5">
+                        Our courses are entirely online, and cost 50 USD to register for. All of the money from these
+                        courses will be used to help fund local businesses.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    particlesJS("particles-js",{particles:{number:{value:64,density:{enable:!0,value_area:800}},color:{value:"#ffffff"},shape:{type:"circle",stroke:{width:0,color:"#000000"},polygon:{nb_sides:5}},opacity:{value:0,random:!1,anim:{enable:!1,speed:1,opacity_min:0,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:40,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#ffffff",opacity:.2,width:1},move:{enable:!0,speed:8,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1,mode:"grab"},onclick:{enable:!1,mode:"repulse"},resize:!0}},retina_detect:!0});
+</script>
+{% endblock %}

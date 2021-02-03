@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--favicons, there're so many-->
+    <link rel="icon" href="{{ cdn_for(filename='logo.svg') }}" sizes="any" type="image/svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ cdn_for(filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ cdn_for(filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ cdn_for(filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ cdn_for(filename='favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ cdn_for(filename='favicon/safari-pinned-tab.svg') }}" color="{{ brand_color }}">
+    <link rel="shortcut icon" href="{{ cdn_for(filename='favicon/favicon.ico') }}">
+    <meta name="msapplication-TileColor" content="{{ brand_color }}">
+    <meta name="msapplication-config" content="{{ cdn_for(filename='favicon/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ cdn_for('css/ridge.min.css') }}">
+    {% block stylesheet %}{% endblock %}
+
+    <script src="{{ cdn_for('js/ridge.min.js') }}"></script>
+    <script async src="https://kit.fontawesome.com/3bb398b479.js" crossorigin="anonymous"></script>
+    {% block javascript %}{% endblock %}
+
+    <title>Ridge Computing - {% block title %}{% endblock %}</title>
+    <meta name="description" content="Ridge Computing offers an easy and charitable way to learn computer science.">
+    <meta name="robots" content="none">
+    <meta name="language" content="en">
+    <style>
+        img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+}
+    </style>
+</head>
+<body>
+<main style="user-select: none;">
+    {% include 'nav.html' %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'footer.html' %}
+</main>
+</body>
+</html>

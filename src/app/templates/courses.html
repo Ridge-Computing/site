@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h1 class="title is-1" style="padding-top: 3em;">Courses</h1>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Registration</h2>
+                <p>Please head to the webpage of the Ridge Computing chapter nearest to you. They are linked below as well as on the <a href="/about">about</a> page.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                {% for course in courses.listall() %}
+                <div class="tile notification is-parent is-vertical">
+                    <div class="tile">
+                        <p class="title is-3">{{ course.name }}</p>
+                        <br>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3">
+                            <div class="tile is-child notification is-white">
+                                <p>Offered at:</p>
+                                {% if not course.offered_by %}
+                                TBD
+                                {% endif %}
+                                {% for chapter in course.offered_by %}
+                                <li style="list-style-type: none;">
+                                    <a href="/chapter/{{ chapter.name }}">{{ chapter.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </div>
+                            <div class="tile is-child">
+                                <img src="{{ course.icon }}" style="margin-top: 1em;" alt="{{ course.name }} icon">
+                            </div>
+                        </div>
+                        <div class="column is-9">
+                            <div class="tile is-child notification is-white">
+                                {% include desc_for(course) %}
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+twemoji.parse(document.body, {
+    folder: 'svg',
+    ext: '.svg'
+});
+MathJax = {
+    options: {
+        enableMenu: false
+    }
+};
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endblock %}

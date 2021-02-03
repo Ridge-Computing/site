@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h1 class="title is-1" style="padding-top: 3em;">About</h1>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Our Mission</h2>
+                <p>Ridge Computing seeks to inspire the next generation of students to pursue computer science. We
+                    strive to teach and push students of all levels to learn and experience the value of coding. Through
+                    dedicated teachers and insightful lessons, we use our passion for computer science to motivate our
+                    students. We hope to reach as many of our peers as possible and share our love for computer science
+                    with them.</p>
+                <em>
+                <pre id="hello"
+                     style="overflow: automatic; border-radius: 4px; font-size: xx-large; background-image: linear-gradient(141deg, #1f191a 0, #363636 71%, #46403f 100%); color: white; margin-top: 1em;">$ </pre>
+                </em>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Locations</h2>
+                <div id="mapid" style="height: 64vh"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero is-white">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <h2 class="title">Branches</h2>
+                <ul>
+                    {% for branch in branches.listall() %}
+                    {% if 'Basking Ridge' in branch.name %}
+                    <li>
+                        <div class="tile notification is-round is-parent">
+                            <div class="tile is-child">
+                                <p class="title is-5"><a href="/chapter/{{ branch.name }}">{{ branch.name }}</a></p>
+                            </div>
+                            <div class="tile is-child">
+                                <p class="subtitle">Founders: Allan Zhang, Aniket Rai</p>
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    {% else %}
+                    <li>
+                        <div class="tile notification is-round is-parent">
+                            <div class="tile is-child">
+                                <p class="title is-5"><a href="/chapter/{{ branch.name }}">{{ branch.name }}</a></p>
+                            </div>
+                            <div class="tile is-child">
+                                <p class="subtitle">Leader: {{ branch.leader.name }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                <a href="/contact" class="button is-rounded is-ridge is-large is-family-sans-serif">Contact
+                    us!</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+a=L.map("mapid").setView([40.7066,-74.5493],3);L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}@2x?access_token={accessToken}",{attribution:'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',maxZoom:30,id:"mapbox/streets-v11",tileSize:512,zoomOffset:-1,accessToken:"pk.eyJ1IjoibW9ycGhlbGVpIiwiYSI6ImNra2l4a3E2aDA5MHMyb3M2cHJ4a2Z0ZHMifQ.G7kA_dLis9Il_SZDBHpbJg"}).addTo(a),a.scrollWheelZoom.disable()
+mymap=a;
+
+{% for branch in branches.listall() %}
+
+var circle = L.circle([{{ branch.lat }}, {{ branch.long }}], {
+    color: '{{ brand_color }}',
+    fillColor: '{{ brand_color }}',
+    fillOpacity: 0.8,
+    radius: 65565
+}).addTo(mymap);
+circle.bindPopup("<a href='/chapter/{{ branch.name }}'><b>{{ branch.name }}</b></a><br>{% if 'Basking Ridge' in branch.name %}Allan Zhang, Aniket Rai{% else %}{{ branch.leader.name }}{% endif %}");
+
+{% endfor %}
+
+consoleText(['> {{ branches.all_taught() }} students taught.', '> {{ branches.all_raised() }} USD raised.'], 'hello');
+
+</script>
+{% endblock %}
+
+{% block stylesheet %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.min.css">{% endblock %}
+
+{% block javascript %}<script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet-src.min.js"></script>{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}404{% endblock %}
+
+{% block content %}
+
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <p class="title is-1" style="padding-top: 3em;">Error</p>
+            </div>
+        </div>
+    </div>
+    {% include 'flowy.html' %}
+</section>
+<section class="hero is-white" style="padding-top: 1em;">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-offset-2 is-8">
+                <pre id="hello" style="overflow: automatic;"></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+var i = 0;
+var txt = '404 Not Found: The requested URL was not found on the server.\nIf you entered the URL manually please check your spelling and try again.';
+var speed = 32;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("hello").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+</script>
+{% endblock %}
