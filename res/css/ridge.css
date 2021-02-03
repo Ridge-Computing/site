@@ -1,0 +1,113 @@
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+.particles-js{
+    position: absolute;
+}
+
+.particles-js-canvas-el{
+    position: absolute;
+}
+
+@keyframes RidgeHover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.is-ridge{
+    background-image: linear-gradient(270deg, #009e54 0%, #00804d 100%);
+    background-size: 200% 200%;
+    color: #fff;
+    box-shadow: none;
+    border-color: transparent;
+    font-family: 'Quicksand', sans-serif!important;
+}
+
+.is-ridge:hover{
+    animation: RidgeHover 1s ease infinite;
+    color: #fff;
+    box-shadow: 0 0 0 .125em rgba(54, 54, 54, .0625);
+    border-color: transparent;
+}
+
+.is-ridge-inverted:hover{
+    background-image: linear-gradient(270deg, #009e54 0%, #00804d 100%);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.black-hover:hover{
+    background-color: #0a0a0a !important;
+    cursor: default;
+}
+
+main{
+    font-family: 'Quicksand', sans-serif!important;
+}
+
+.ridge-nav {
+    margin-bottom: 0;
+    background-color: #000;
+    width: 100%;
+    position: fixed;
+    z-index: 30;
+}
+
+.ridge-nav a {
+    color: #fff;
+    background: linear-gradient(#000000 0%, #000000 50%, #009e54 50%, #009e54 100%);
+    background-size: 100% 200%;
+    border-bottom-color: #000;
+}
+
+@keyframes nav1 {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 50%}
+    100%{background-position:50% 100%}
+}
+
+.ridge-nav a:hover {
+    color: #fff;
+    border-bottom-color: #009e54;
+    background-color: #009e54;
+    animation: nav1 0.05s linear;
+    animation-fill-mode: forwards;
+}
+
+svg.flowy {
+    position: relative;
+}
+
+svg.flowy-invert {
+    position: relative;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/gh/Ridge-Computing/static/font/quicksand.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/Ridge-Computing/static/font/quicksand.woff') format('woff');
+}
+
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+}
