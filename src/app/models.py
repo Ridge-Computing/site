@@ -71,11 +71,11 @@ class OrgData:
 
     @name.setter
     def name(self, new_name: str):
-        db.hset(self.uuid, "name", new_name)
-        if db.exists(f"oname:{self.name}"):
+        if db.exists(f"oname:{new_name}"):
             raise DuplicateObject
         db.delete(f"oname:{self.name}")
         db.set(f"oname:{new_name}", self.uuid)
+        db.hset(self.uuid, "name", new_name)
 
 
     @property
@@ -147,11 +147,11 @@ class UserData:
 
     @name.setter
     def name(self, new_name: str):
-        db.hset(self.uuid, "name", new_name)
-        if db.exists(f"uname:{self.name}"):
+        if db.exists(f"uname:{new_name}"):
             raise DuplicateObject
         db.delete(f"uname:{self.name}")
         db.set(f"uname:{new_name}", self.uuid)
+        db.hset(self.uuid, "name", new_name)
 
     @property
     def bio(self) -> str:
@@ -252,11 +252,11 @@ class CourseData:
 
     @name.setter
     def name(self, new_name: str):
-        db.hset(self.uuid, "name", new_name)
-        if db.exists(f"cname:{self.name}"):
+        if db.exists(f"cname:{new_name}"):
             raise DuplicateObject
         db.delete(f"cname:{self.name}")
         db.set(f"cname:{new_name}", self.uuid)
+        db.hset(self.uuid, "name", new_name)
 
     @property
     def description(self) -> str:
@@ -345,11 +345,11 @@ class BranchData:
 
     @name.setter
     def name(self, new_name: str):
-        db.hset(self.uuid, "name", new_name)
-        if db.exists(f"bname:{self.name}"):
+        if db.exists(f"bname:{new_name}"):
             raise DuplicateObject
         db.delete(f"bname:{self.name}")
         db.set(f"bname:{new_name}", self.uuid)
+        db.hset(self.uuid, "name", new_name)
 
     @property
     def lat(self) -> float:
