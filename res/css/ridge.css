@@ -16,6 +16,7 @@
 
 .particles-js-canvas-el{
     position: absolute;
+    left: 0 !important;
 }
 
 @keyframes RidgeHover {
