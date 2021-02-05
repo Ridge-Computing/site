@@ -172,8 +172,13 @@ class UserData:
 
     @property
     def roles(self) -> Generator[str, None, None]:
-        for role in db.smembers(f"roles:{self.uuid}"):
-            yield role.decode("utf-8")
+        r = {role.decode("utf-8") for role in db.smembers(f"roles:{self.uuid}")}
+        for role in r:
+            if role != "Teacher":
+                yield role
+        if "Teacher" in r:
+            yield "Teacher"
+
 
     def froles(self) -> str:
         s = ''
