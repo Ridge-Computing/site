@@ -19,7 +19,7 @@ def format(content)
     content.split(/\\\\/).each do |sub|
         temp << emojify(sub)
     end
-    Kramdown::Document.new(temp.join('\\\\')).to_html
+    Kramdown::Document.new(temp.join('\\\\')).to_html.gsub('<ul>', '<ul style="list-style-type: disc!important; margin-left: 1em;">').gsub('<p>', '<br><p>').sub! '<br>', ''
 end
 
 uuid = ARGV[0]
