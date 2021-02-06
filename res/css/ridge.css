@@ -59,6 +59,8 @@
 
 main{
     font-family: 'Quicksand', sans-serif!important;
+    font-display: swap;
+    user-select: none;
 }
 
 .ridge-nav {
