@@ -14,12 +14,35 @@ def emojify(content)
     end
 end
 
-def format(content)
-    temp = []
-    content.split(/\\\\/).each do |sub|
-        temp << emojify(sub)
+def sup(content)
+    content.to_str.gsub(/(?<!\\)\^\((.+)(?<!\\)\)/) do |match|
+        '<sup markdown="1">' << $1 << '</sup>'
     end
-    doc = Kramdown::Document.new(temp.join('\\\\')).to_html.gsub('<ul>', '<ul style="list-style-type: disc!important; margin-left: 1em;">').gsub('<p>', '<br><p>')
+end
+
+def sub(content)
+    content.to_str.gsub(/(?<!\\)_\((.+)(?<!\\)\)/) do |match|
+        '<sub markdown="1">' << $1 << '</sub>'
+    end
+end
+
+def strike(content)
+    content.to_str.gsub(/(?<!\\)~~(.+)(?<!\\)~~/) do |match|
+        '<s markdown="1">' << $1 << '</s>'
+    end
+end
+
+def under(content)
+    content.to_str.gsub(/(?<!\\)__(.+)(?<!\\)__/) do |match|
+        '<u markdown="1">' << $1 << '</u>'
+    end
+end
+
+def format(content)
+    content.gsub!(/\\\\/, '&#92;')
+    content = under(strike(sup(sub(emojify(content)))))
+    content.gsub!(/\\\^/, '^').gsub!(/\\~/, '~').gsub!('&#92;', '\\\\')
+    doc = Kramdown::Document.new(content).to_html.gsub('<ul>', '<ul style="list-style-type: disc!important; margin-left: 1em;">').gsub('<p>', '<br><p>').gsub(' markdown="1"', '')
     if doc[0..3].eql? '<br>'
         doc[4..-1]
     else
