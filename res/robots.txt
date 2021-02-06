@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-Delay: 20
+
+Sitemap: https://ridgecomputing.org/sitemap.xml
