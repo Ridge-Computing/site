@@ -119,3 +119,59 @@ img.emoji {
     font-family: 'Quicksand', sans-serif!important;
     font-size: 16px!important;
 }
+
+@keyframes f1 {
+    0% {transform: translatex(0%);}
+    25% {transform: translatex(-25%);}
+    50% {transform: translatex(-80%);}
+    75% {transform: translatex(-100%);}
+    90% {transform: translatex(-50%);}
+    100% {transform: translatex(0%);}
+}
+@keyframes f2 {
+    0% {transform: translatex(0%);}
+    25% {transform: translatex(-75%);}
+    50% {transform: translatex(-100%);}
+    75% {transform: translatex(-25%);}
+    100% {transform: translatex(0%);}
+}
+.flowy1 {
+    animation: f1;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.flowy2 {
+    animation: f2;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes nf1 {
+    0% {transform: translatex(0%);}
+    25% {transform: translatex(-25%);}
+    50% {transform: translatex(-100%);}
+    75% {transform: translatex(-75%);}
+    100% {transform: translatex(0%);}
+}
+@keyframes nf2 {
+    0% {transform: translatex(0%);}
+    10% {transform: translatex(-50%);}
+    25% {transform: translatex(-100%);}
+    50% {transform: translatex(-80%);}
+    75% {transform: translatex(-25%);}
+    100% {transform: translatex(0%);}
+}
+.nflowy1 {
+    animation: nf1;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.nflowy2 {
+    animation: nf2;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}

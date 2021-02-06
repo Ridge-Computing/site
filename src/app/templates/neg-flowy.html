@@ -1,4 +1,34 @@
-<svg class="flowy-invert" viewbox="0 5 100 15" preserveAspectRatio="none" style="animation: none !important; transform: rotate(180deg)">
-    <path fill="#FFFFFF" opacity="0.25" d="M0 30 V15 Q30 -3 60 15 V30z"/>
-    <path fill="#FFFFFF" d="M0 50 V7 Q38 17 60 12 T100 9 V30z"/>
+<svg class="flowy-invert" viewbox="0 5 100 15" preserveAspectRatio="none" style="transform: rotate(180deg)">
+    <path class="nflowy1" fill="#FFFFFF" opacity="0.25" d="M50 30V15Q80 3 110 15V30zM150 30V15Q180 3 210 15V30z"/>
+    <path class="nflowy2" fill="#FFFFFF" d="M0 30V12Q30 7 55 12T100 13V30zM100 30V13Q130 7 155 12T200 11V30z"/>
 </svg>
+
+<style>
+@keyframes nf1 {
+    0% {transform: translatex(0%);}
+    25% {transform: translatex(-25%);}
+    50% {transform: translatex(-100%);}
+    75% {transform: translatex(-75%);}
+    100% {transform: translatex(0%);}
+}
+@keyframes nf2 {
+    0% {transform: translatex(0%);}
+    10% {transform: translatex(-50%);}
+    25% {transform: translatex(-100%);}
+    50% {transform: translatex(-80%);}
+    75% {transform: translatex(-25%);}
+    100% {transform: translatex(0%);}
+}
+.nflowy1 {
+    animation: nf1;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.nflowy2 {
+    animation: nf2;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+</style>
