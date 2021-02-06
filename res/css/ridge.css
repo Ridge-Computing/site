@@ -118,6 +118,7 @@ img.emoji {
 .leaflet-container {
     font-family: 'Quicksand', sans-serif!important;
     font-size: 16px!important;
+    border-radius: 4px;
 }
 
 @keyframes f1 {
