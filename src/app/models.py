@@ -26,6 +26,10 @@ class UserData:
     pass
 
 
+class TimeData:
+    pass
+
+
 class DuplicateObject(Exception):
     pass
 
@@ -48,6 +52,13 @@ class OrgData:
         )
         db.set(f"oname:{name}", uuid)
         return cls(uuid)
+
+    @classmethod
+    def delete(cls, name: str):
+        uuid = db.get(f"oname:{name}").decode("utf-8")
+        db.delete(f"oname:{name}")
+        for key in db.keys(f'*{uuid}*'):
+            db.delete(key)
 
     def __init__(self, uuid):
         self.uuid = uuid
@@ -124,6 +135,13 @@ class UserData:
             db.sadd(f"courses:{uuid}", course.uuid)
         format(uuid)
         return cls(uuid)
+
+    @classmethod
+    def delete(cls, name: str):
+        uuid = db.get(f"uname:{name}").decode("utf-8")
+        db.delete(f"uname:{name}")
+        for key in db.keys(f'*{uuid}*'):
+            db.delete(key)
 
     @classmethod
     def user(cls, username: str) -> UserData:
@@ -231,6 +249,13 @@ class CourseData:
         return cls(uuid)
 
     @classmethod
+    def delete(cls, name: str):
+        uuid = db.get(f"cname:{name}").decode("utf-8")
+        db.delete(f"cname:{name}")
+        for key in db.keys(f'*{uuid}*'):
+            db.delete(key)
+
+    @classmethod
     def course(cls, name: str) -> CourseData:
         return CourseData(db.get(f"cname:{name}").decode("utf-8"))
 
@@ -327,6 +352,13 @@ class BranchData:
             )
         db.set(f"bname:{name}", uuid)
         return cls(uuid)
+
+    @classmethod
+    def delete(cls, name: str):
+        uuid = db.get(f"bname:{name}").decode("utf-8")
+        db.delete(f"bname:{name}")
+        for key in db.keys(f'*{uuid}*'):
+            db.delete(key)
 
     def __init__(self, uuid):
         self.uuid = uuid
