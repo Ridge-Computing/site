@@ -29,21 +29,23 @@
     <meta name="robots" content="none">
     <meta name="language" content="en">
     <style>
-        img.emoji {
-            height: 1em;
-            width: 1em;
-            margin: 0 .05em 0 .1em;
-            vertical-align: -0.1em;
-        }
-
         .leaflet-container {
             font-family: 'Quicksand', sans-serif!important;
 	        font-size: 16px!important;
 	    }
+
+	    @font-face {
+            font-family: 'Quicksand';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://cdn.jsdelivr.net/gh/Ridge-Computing/static/font/quicksand.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/Ridge-Computing/static/font/quicksand.woff') format('woff');
+        }
     </style>
 </head>
 <body>
-<main style="user-select: none; font-display: swap;">
+<main style="user-select: none;">
     {% include 'nav.html' %}
 
     {% block content %}{% endblock %}
