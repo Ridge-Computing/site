@@ -42,7 +42,9 @@ def format(content)
     content.gsub!(/\\\\/, '&#92;')
 #     content = under(strike(sup(sub(emojify(content)))))
     content = emojify(content)
-    content.gsub!(/\\\^/, '^').gsub!(/\\~/, '~').gsub!('&#92;', '\\\\')
+    content.gsub!(/\\\^/, '^')
+    content.gsub!(/\\~/, '~')
+    content.gsub!('&#92;', '\\\\')
     doc = Kramdown::Document.new(content).to_html.gsub('<ul>', '<ul style="list-style-type: disc!important; margin-left: 1em;">').gsub('<p>', '<br><p>').gsub(' markdown="1"', '')
     if doc[0..3].eql? '<br>'
         doc[4..-1]
