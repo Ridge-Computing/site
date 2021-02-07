@@ -389,6 +389,10 @@ class BranchData:
         db.hset(self.uuid, "name", new_name)
 
     @property
+    def short_name(self):
+        return self.name.split(',')[0]
+
+    @property
     def lat(self) -> float:
         return float(db.hget(self.uuid, "lat").decode("utf-8"))
 
