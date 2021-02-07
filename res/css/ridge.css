@@ -176,3 +176,20 @@ img.emoji {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
+
+.console {
+    overflow: automatic;
+    border-radius: 4px;
+    font-size: xx-large;
+    background-image: linear-gradient(141deg, #1f191a 0, #363636 71%, #46403f 100%);
+    color: white;
+    margin-top: 1em;
+}
+
+.body-hero {
+    padding-top: 1em;
+}
+
+i {
+    width: 3em; height: 3em;
+}
