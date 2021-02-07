@@ -30,7 +30,10 @@
                 {% for course in courses.listall() %}
                 <div class="tile notification is-parent is-vertical">
                     <div class="tile">
-                        <p class="title is-3">{{ course.name }}</p>
+                        <p class="title is-3">
+                            <img src="{{ course.icon }}" style="width: 1em; height: 1em; margin-bottom: -0.125em;" alt="{{ course.name }} icon">
+                            {{ course.name }}
+                        </p>
                         <br>
                     </div>
                     <div class="columns">
@@ -45,9 +48,6 @@
                                     <a href="/chapter/{{ chapter.name }}">{{ chapter.name }}</a>
                                 </li>
                                 {% endfor %}
-                            </div>
-                            <div class="tile is-child">
-                                <img src="{{ course.icon }}" style="margin-top: 1em;" alt="{{ course.name }} icon">
                             </div>
                         </div>
                         <div class="column is-9">
