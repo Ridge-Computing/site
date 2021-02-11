@@ -109,11 +109,11 @@ mymap=a;
 
 {% for branch in branches.listall() %}
 
-var circle = L.circle([{{ branch.lat }}, {{ branch.long }}], {
+var circle = L.circleMarker([{{ branch.lat }}, {{ branch.long }}], {
     color: '{{ brand_color }}',
     fillColor: '{{ brand_color }}',
     fillOpacity: 0.8,
-    radius: 65565
+    radius: 4
 }).addTo(mymap);
 circle.bindPopup("<a href='/chapter/{{ branch.name }}'><b>{{ branch.name }}</b></a><br>{% if 'Basking Ridge' in branch.name %}Allan Zhang, Aniket Rai{% else %}{{ branch.leader.name }}{% endif %}");
 
