@@ -94,7 +94,7 @@ L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}@2x?access_token={accessToken}",
     {
         attribution:
-            'Markers may not be geographically accurate<br>© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+            '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
         maxZoom: 30,
         id: "morphelei/ckky3gavo4phs17o4xti37tey",
         tileSize: 512,
@@ -112,7 +112,8 @@ mymap=a;
 var circle = L.circleMarker([{{ branch.lat }}, {{ branch.long }}], {
     color: '{{ brand_color }}',
     fillColor: '{{ brand_color }}',
-    fillOpacity: 0.8,
+    fillOpacity: 0.1,
+    weight: 1,
     radius: 4
 }).addTo(mymap);
 circle.bindPopup("<a href='/chapter/{{ branch.name }}'><b>{{ branch.name }}</b></a><br>{% if 'Basking Ridge' in branch.name %}Allan Zhang, Aniket Rai{% else %}{{ branch.leader.name }}{% endif %}");
