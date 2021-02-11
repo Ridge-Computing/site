@@ -94,7 +94,7 @@ L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}@2x?access_token={accessToken}",
     {
         attribution:
-            '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+            'Markers may not be geographically accurate<br>© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
         maxZoom: 30,
         id: "morphelei/ckky3gavo4phs17o4xti37tey",
         tileSize: 512,
@@ -104,7 +104,7 @@ L.tileLayer(
     }
 ).addTo(a);
 a.scrollWheelZoom.disable();
-a.attributionControl.setPrefix("Markers may not be geographically accurate");
+a.attributionControl.setPrefix();
 mymap=a;
 
 {% for branch in branches.listall() %}
