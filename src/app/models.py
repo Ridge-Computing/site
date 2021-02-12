@@ -418,12 +418,18 @@ class BranchData:
 
     @classmethod
     def listall(cls) -> Generator[BranchData, None, None]:
+        branchlist = []
+
         for name in db.keys("bname:*"):
-            if 'Basking Ridge' in name[6:].decode("utf-8"):
-                yield cls.branch(name[6:].decode("utf-8"))
-        for name in db.keys("bname:*"):
-            if 'Basking Ridge' not in name[6:].decode("utf-8"):
-                yield cls.branch(name[6:].decode("utf-8"))
+            if 'Basking Ridge' in (bname := name[6:].decode("utf-8")):
+                branchlist += [(cls.branch(bname), 0)]
+            else:
+                branchlist += [(cls.branch(bname), 1)]
+
+        branchlist.sort(key=lambda u: u[1])
+
+        for m in branchlist:
+            yield m[0]
 
     @property
     def taught(self) -> int:
