@@ -467,15 +467,19 @@ class BranchData:
 
     @property
     def members(self) -> Generator[UserData, None, None]:
+        memberlist = []
+
         for member in db.smembers(f"members:{self.uuid}"):
             if any(role in (user := UserData(member.decode("utf-8"))).roles for role in {'Founder', 'Co-Founder', 'Chapter Leader'}):
-                yield user
-        for member in db.smembers(f"members:{self.uuid}"):
-            if not any(role in (user := UserData(member.decode("utf-8"))).roles for role in {'Founder', 'Co-Founder', 'Chapter Leader', 'Teacher'}):
-                yield user
-        for member in db.smembers(f"members:{self.uuid}"):
-            if (not any(role in (user := UserData(member.decode("utf-8"))).roles for role in {'Founder', 'Co-Founder', 'Chapter Leader'})) and ('Teacher' in user.roles):
-                yield user
+                memberlist += [(user, 0)]
+            elif 'Teacher' not in user.roles:
+                memberlist += [(user, 1)]
+            else:
+                memberlist += [(user, 2)]
+        memberlist.sort(key=lambda u: u[1])
+
+        for m in memberlist:
+            yield m[0]
 
     @members.setter
     def members(self, new_members: Iterable[UserData]):
