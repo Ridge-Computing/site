@@ -8,62 +8,67 @@
 
 <url>
   <loc>https://ridgecomputing.org/</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ridgecomputing.org/about/</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ridgecomputing.org/courses/</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ridgecomputing.org/contact/</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Basking%20Ridge,%20NJ</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/robots.txt</loc>
+  <lastmod>2021-02-06T00:51:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ridgecomputing.org/chapter/Basking%20Ridge,%20NJ,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Michigan</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/Sunnyvale,%20CA,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Atlanta,%20GA</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/Suwanee,%20GA,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Sunnyvale,%20CA</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/Medell%C3%ADn,%20ANT,%20CO</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Evergreen%20Valley,%20San%20Jose,%20CA</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/San%20Jos%C3%A9%20(Evergreen),%20CA,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Medell%C3%ADn,%20CO</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/Troy,%20MI,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Lynbrook,%20San%20Jose,%20CA</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/San%20Jos%C3%A9%20(Lynbrook),%20CA,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ridgecomputing.org/chapter/Richfield,%20OH</loc>
-  <lastmod>2021-02-06T00:42:43+00:00</lastmod>
+  <loc>https://ridgecomputing.org/chapter/Richfield,%20OH,%20US</loc>
+  <lastmod>2021-02-19T17:05:47+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
