@@ -261,8 +261,13 @@ class CourseData:
 
     @classmethod
     def listall(cls):
+        courses = ["Intro to Java", "Intro to Python", "Python Machine Learning", "Java Algorithms"]
+        for name in courses:
+            yield cls.course(name)
         for name in db.keys("cname:*"):
-            yield cls.course(name[6:].decode("utf-8"))
+            n = name[6:].decode("utf-8")
+            if n not in courses:
+                yield cls.course(n)
 
     def __init__(self, uuid):
         self.uuid = uuid
