@@ -533,8 +533,12 @@ class BranchData:
         for member in self.members:
             for course in member.courses:
                 s.add(course.uuid)
+        courses = ["Intro to Java", "Intro to Python", "Python Machine Learning", "Java Algorithms"]
+        for c in courses:
+            yield CourseData.course(c)
         for element in s:
-            yield CourseData(element)
+            if CourseData(element).name not in courses:
+                yield CourseData(element)
 
     def taught_by(self, course):
         s = set()
